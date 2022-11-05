@@ -18,7 +18,7 @@ class LexStack(Stack):
         cfn_bot = lex.CfnBot(
             self,
             "MyLexBot",
-            data_privacy=False,
+            data_privacy={"ChildDirected": False},
             idle_session_ttl_in_seconds=123,
             name="FirstLexBot",
             role_arn="role_arn",
