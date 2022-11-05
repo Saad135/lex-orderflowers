@@ -34,3 +34,5 @@ class LexStack(Stack):
             name="FirstLexBot",
             role_arn=lex_role.role_arn,
         )
+
+        cfn_bot.apply_removal_policy(RemovalPolicy.DESTROY)
