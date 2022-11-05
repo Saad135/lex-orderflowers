@@ -14,6 +14,14 @@ class LexStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
+        # role Draft 1
+        lex_role = iam.Role(
+            self,
+            "LexRole",
+            assumed_by=iam.ServicePrincipal("lexv2.amazonaws.com"),
+            description="Role for the lex bot",
+        )
+
         # Lex bot draft 1
         cfn_bot = lex.CfnBot(
             self,
@@ -21,5 +29,5 @@ class LexStack(Stack):
             data_privacy={"ChildDirected": False},
             idle_session_ttl_in_seconds=123,
             name="FirstLexBot",
-            role_arn="role_arn",
+            role_arn=lex_role.role_arn,
         )
