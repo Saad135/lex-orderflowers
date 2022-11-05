@@ -26,7 +26,7 @@ class LexStack(Stack):
         lex_role.apply_removal_policy(RemovalPolicy.DESTROY)
 
         # Lex bot draft 1
-        cfn_bot = lex.CfnBot(
+        lex_bot = lex.CfnBot(
             self,
             "MyLexBot",
             data_privacy={"ChildDirected": False},
@@ -35,4 +35,4 @@ class LexStack(Stack):
             role_arn=lex_role.role_arn,
         )
 
-        cfn_bot.apply_removal_policy(RemovalPolicy.DESTROY)
+        lex_bot.apply_removal_policy(RemovalPolicy.DESTROY)
