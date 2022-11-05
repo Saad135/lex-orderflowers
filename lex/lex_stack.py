@@ -7,6 +7,7 @@ from aws_cdk import (
     aws_sns as sns,
     aws_sns_subscriptions as subs,
     aws_lex as lex,
+    RemovalPolicy,
 )
 
 
@@ -21,6 +22,8 @@ class LexStack(Stack):
             assumed_by=iam.ServicePrincipal("lexv2.amazonaws.com"),
             description="Role for the lex bot",
         )
+
+        lex_role.apply_removal_policy(RemovalPolicy.DESTROY)
 
         # Lex bot draft 1
         cfn_bot = lex.CfnBot(
