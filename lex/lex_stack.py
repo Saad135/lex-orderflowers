@@ -48,10 +48,15 @@ class LexStack(Stack):
             utterance="I would like to order some flowers"
         )
 
+        # flower confirm text message
+        flower_confirm_message = lex.CfnBot.PlainTextMessageProperty(
+            value="Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?"
+        )
+
         # Message group
         flower_confirm_group = lex.CfnBot.MessageGroupProperty(
             message=lex.CfnBot.MessageProperty(
-                plain_text_message="Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?"
+                plain_text_message=flower_confirm_message
             )
         )
 
