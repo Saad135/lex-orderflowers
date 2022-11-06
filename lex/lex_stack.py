@@ -73,7 +73,7 @@ class LexStack(Stack):
 
         # lex intent confirmation
         confirm_flowers = lex.CfnBot.IntentConfirmationSettingProperty(
-            prompt_specification=flowers_propmt_specs
+            prompt_specification=flowers_propmt_specs, declination_response=""
         )
 
         # lex intent
