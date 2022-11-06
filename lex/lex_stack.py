@@ -25,12 +25,18 @@ class LexStack(Stack):
 
         lex_role.apply_removal_policy(RemovalPolicy.DESTROY)
 
+        # Bare minimum slot type
+        flower_type = lex.CfnBot.SlotTypeProperty(
+            name="FlowerTypes", description="the type of flowers", slot_type_values=[]
+        )
+
         # Bare minimum localeProperty
         en_us_locale = lex.CfnBot.BotLocaleProperty(
             locale_id="en_US",
             nlu_confidence_threshold=0.4,
             description="English Locale",
             voice_settings=lex.CfnBot.VoiceSettingsProperty(voice_id="Ivy"),
+            slot_types=[],
         )
 
         # Lex bot draft 1
