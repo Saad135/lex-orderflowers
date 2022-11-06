@@ -25,10 +25,23 @@ class LexStack(Stack):
 
         lex_role.apply_removal_policy(RemovalPolicy.DESTROY)
 
-        # Slot values
-        lilies = lex.CfnBot.SlotTypeValueProperty(sample_value="lilies")
-        roses = lex.CfnBot.SlotTypeValueProperty(sample_value="roses")
-        tulips = lex.CfnBot.SlotTypeValueProperty(sample_value="tulips")
+        # lilies sample values
+        lilies_value = lex.CfnBot.SampleValueProperty(value="lilies")
+
+        # Slot values: lolies
+        lilies = lex.CfnBot.SlotTypeValueProperty(sample_value=lilies_value)
+
+        # roses sample values
+        roses_value = lex.CfnBot.SampleValueProperty(value="roses")
+
+        # Slot values: lolies
+        roses = lex.CfnBot.SlotTypeValueProperty(sample_value=roses_value)
+
+        # tulips sample values
+        tulips_value = lex.CfnBot.SampleValueProperty(value="tulips")
+
+        # Slot values: tulips
+        tulips = lex.CfnBot.SlotTypeValueProperty(sample_value=tulips_value)
 
         # slot type
         flower_type = lex.CfnBot.SlotTypeProperty(
