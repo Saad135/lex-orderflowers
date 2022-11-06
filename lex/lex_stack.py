@@ -30,6 +30,7 @@ class LexStack(Stack):
             locale_id="en_US",
             nlu_confidence_threshold=0.4,
             description="English Locale",
+            voice_settings=lex.CfnBot.VoiceSettingsProperty(voice_id="Ivy"),
         )
 
         # Lex bot draft 1
