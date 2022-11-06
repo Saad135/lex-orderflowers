@@ -85,6 +85,7 @@ class LexStack(Stack):
             description="Intent to order a bouquet of flowers for pickup",
             sample_utterances=[utterance_flowers_a, utterance_flowers_b],
             intent_confirmation_setting=confirm_flowers,
+            slot_priorities=[],
         )
 
         # localeProperty
