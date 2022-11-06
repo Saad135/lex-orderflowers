@@ -79,6 +79,19 @@ class LexStack(Stack):
             prompt_specification=flowers_accept, declination_response=decline_flowers
         )
 
+        # Slot Priorities
+        pickup_date_priority = lex.CfnBot.SlotPriorityProperty(
+            priority=2, slot_name="PickupDate"
+        )
+
+        flower_type_priority = lex.CfnBot.SlotPriorityProperty(
+            priority=2, slot_name="FlowerType"
+        )
+
+        pickup_time_priority = lex.CfnBot.SlotPriorityProperty(
+            priority=2, slot_name="PickupTime"
+        )
+
         # lex intent
         order_flower_intent = lex.CfnBot.IntentProperty(
             name="OrderFlowers",
