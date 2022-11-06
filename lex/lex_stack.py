@@ -93,7 +93,7 @@ class LexStack(Stack):
             name="OrderFlowers",
             description="Intent to order a bouquet of flowers for pickup",
             sample_utterances=[utterance_flowers_a, utterance_flowers_b],
-            intent_confirmation_setting=lex.CfnBot.IntentConfirmationSettingProperty(),
+            intent_confirmation_setting=confirm_flowers,
         )
 
         # Lex bot
