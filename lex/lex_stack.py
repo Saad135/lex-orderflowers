@@ -49,7 +49,7 @@ class LexStack(Stack):
             description="the type of flowers",
             slot_type_values=[lilies, roses, tulips],
             value_selection_setting=lex.CfnBot.SlotValueSelectionSettingProperty(
-                resolution_strategy="OriginalValue"
+                resolution_strategy="ORIGINAL_VALUE"
             ),
         )
 
