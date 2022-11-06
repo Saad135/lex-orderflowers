@@ -85,11 +85,11 @@ class LexStack(Stack):
         )
 
         flower_type_priority = lex.CfnBot.SlotPriorityProperty(
-            priority=2, slot_name="FlowerType"
+            priority=1, slot_name="FlowerType"
         )
 
         pickup_time_priority = lex.CfnBot.SlotPriorityProperty(
-            priority=2, slot_name="PickupTime"
+            priority=3, slot_name="PickupTime"
         )
 
         # lex intent
