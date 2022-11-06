@@ -25,6 +25,11 @@ class LexStack(Stack):
 
         lex_role.apply_removal_policy(RemovalPolicy.DESTROY)
 
+        # Bare minimum localeProperty
+        en_us_locale = lex.CfnBot.BotLocaleProperty(
+            locale_id="en_US", nlu_confidence_threshold=0.4
+        )
+
         # Lex bot draft 1
         lex_bot = lex.CfnBot(
             self,
@@ -33,6 +38,8 @@ class LexStack(Stack):
             idle_session_ttl_in_seconds=123,
             name="FirstLexBot",
             role_arn=lex_role.role_arn,
+            auto_build_bot_locales=False,
+            bot_locales=[],
         )
 
         lex_bot.apply_removal_policy(RemovalPolicy.DESTROY)
