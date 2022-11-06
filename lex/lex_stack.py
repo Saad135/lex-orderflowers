@@ -104,7 +104,7 @@ class LexStack(Stack):
 
         # FlowerType
 
-        # flower decline text message
+        # flower slot message
         flower_slot_message = lex.CfnBot.PlainTextMessageProperty(
             value="What type of flowers would you like to order?"
         )
