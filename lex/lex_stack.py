@@ -104,11 +104,14 @@ class LexStack(Stack):
 
         # FlowerType
 
+        # flower decline text message
+        flower_slot_message = lex.CfnBot.PlainTextMessageProperty(
+            value="What type of flowers would you like to order?"
+        )
+
         # Flower slot group list
         flower_slot_group = lex.CfnBot.MessageGroupProperty(
-            message=lex.CfnBot.MessageProperty(
-                plain_text_message="What type of flowers would you like to order?"
-            )
+            message=lex.CfnBot.MessageProperty(plain_text_message=flower_slot_message)
         )
 
         # Flower slot Prompt specification
