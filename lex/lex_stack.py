@@ -103,6 +103,7 @@ class LexStack(Stack):
                 flower_type_priority,
                 pickup_time_priority,
             ],
+            slots=[],
         )
 
         # localeProperty
