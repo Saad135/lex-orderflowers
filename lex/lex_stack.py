@@ -151,6 +151,32 @@ class LexStack(Stack):
         )
 
         # PickupTime
+        # PickupTime group list
+        pickup_time_group = lex.CfnBot.MessageGroupProperty(
+            message=lex.CfnBot.MessageProperty(
+                plain_text_message="At what time do you want the {FlowerType} to be picked up?"
+            )
+        )
+
+        # PickupTime Prompt specification
+        pickup_time_prompt = lex.CfnBot.PromptSpecificationProperty(
+            message_groups_list=[pickup_time_group],
+            max_retries=3,
+            allow_interrupt=False,
+        )
+
+        # value elicitation setting for PickupTime
+        pickup_time_elicit = lex.CfnBot.SlotValueElicitationSettingProperty(
+            slot_constraint="Required", prompt_specification=pickup_time_prompt
+        )
+
+        # PickupTime Property
+        pickup_time_slot = lex.CfnBot.SlotProperty(
+            name="PickupTime",
+            description="slot for the flower type",
+            slot_type_name="AMAZON.Time",
+            value_elicitation_setting=pickup_time_elicit,
+        )
 
         # lex intent
         order_flower_intent = lex.CfnBot.IntentProperty(
@@ -163,7 +189,7 @@ class LexStack(Stack):
                 flower_type_priority,
                 pickup_time_priority,
             ],
-            slots=[flower_type_slot, pickup_date_slot],
+            slots=[flower_type_slot, pickup_date_slot, pickup_time_slot],
         )
 
         # localeProperty
