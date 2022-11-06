@@ -92,6 +92,13 @@ class LexStack(Stack):
             priority=3, slot_name="PickupTime"
         )
 
+        flower_type_slot = lex.CfnBot.SlotProperty(
+            name="FlowerType",
+            description="slot for the flower type",
+            slot_type_name="FlowerType",
+            # value_elicitation_setting=
+        )
+
         # lex intent
         order_flower_intent = lex.CfnBot.IntentProperty(
             name="OrderFlowers",
