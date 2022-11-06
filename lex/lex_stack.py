@@ -15,7 +15,7 @@ class LexStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # role Draft 1
+        # role
         lex_role = iam.Role(
             self,
             "LexRole",
@@ -30,7 +30,7 @@ class LexStack(Stack):
         roses = lex.CfnBot.SlotTypeValueProperty(sample_value="roses")
         tulips = lex.CfnBot.SlotTypeValueProperty(sample_value="tulips")
 
-        # Bare minimum slot type
+        # slot type
         flower_type = lex.CfnBot.SlotTypeProperty(
             name="FlowerTypes",
             description="the type of flowers",
@@ -40,7 +40,7 @@ class LexStack(Stack):
             ),
         )
 
-        # Bare minimum localeProperty
+        # localeProperty
         en_us_locale = lex.CfnBot.BotLocaleProperty(
             locale_id="en_US",
             nlu_confidence_threshold=0.4,
@@ -49,7 +49,7 @@ class LexStack(Stack):
             slot_types=[],
         )
 
-        # Lex bot draft 1
+        # Lex bot
         lex_bot = lex.CfnBot(
             self,
             "MyLexBot",
