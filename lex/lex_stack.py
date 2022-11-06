@@ -192,6 +192,13 @@ class LexStack(Stack):
             slots=[flower_type_slot, pickup_date_slot, pickup_time_slot],
         )
 
+        # fallback intent
+        fallback_intent = lex.CfnBot.IntentProperty(
+            name="FallbackIntent",
+            description="Default intent when no other intent matches",
+            parent_intent_signature="AMAZON.FallbackIntent",
+        )
+
         # localeProperty
         en_us_locale = lex.CfnBot.BotLocaleProperty(
             locale_id="en_US",
@@ -199,7 +206,7 @@ class LexStack(Stack):
             description="English Locale",
             voice_settings=lex.CfnBot.VoiceSettingsProperty(voice_id="Ivy"),
             slot_types=[flower_type],
-            intents=[order_flower_intent],
+            intents=[order_flower_intent, fallback_intent],
         )
 
         # Lex bot
