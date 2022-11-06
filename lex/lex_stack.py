@@ -65,7 +65,7 @@ class LexStack(Stack):
         )
 
         # Prompt specification
-        flowers_propmt_specs = lex.CfnBot.PromptSpecificationProperty(
+        flowers_accept = lex.CfnBot.PromptSpecificationProperty(
             message_groups_list=[flower_confirm_group],
             max_retries=3,
             allow_interrupt=False,
@@ -85,7 +85,7 @@ class LexStack(Stack):
 
         # lex intent confirmation
         confirm_flowers = lex.CfnBot.IntentConfirmationSettingProperty(
-            prompt_specification=flowers_propmt_specs, declination_response=""
+            prompt_specification=flowers_accept, declination_response=decline_flowers
         )
 
         # lex intent
