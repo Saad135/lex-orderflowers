@@ -35,6 +35,9 @@ class LexStack(Stack):
             name="FlowerTypes",
             description="the type of flowers",
             slot_type_values=[lilies, roses, tulips],
+            value_selection_setting=lex.CfnBot.SlotValueSelectionSettingProperty(
+                resolution_strategy="OriginalValue"
+            ),
         )
 
         # Bare minimum localeProperty
