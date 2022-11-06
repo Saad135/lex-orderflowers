@@ -136,10 +136,15 @@ class LexStack(Stack):
 
         # PickupDate
 
+        # PickupDate slot message
+        pickup_date_slot_message = lex.CfnBot.PlainTextMessageProperty(
+            value="What day do you want the {FlowerType} to be picked up?"
+        )
+
         # PickupDate group list
         pickup_date_group = lex.CfnBot.MessageGroupProperty(
             message=lex.CfnBot.MessageProperty(
-                plain_text_message="What day do you want the {FlowerType} to be picked up?"
+                plain_text_message=pickup_date_slot_message
             )
         )
 
