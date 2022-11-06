@@ -92,6 +92,8 @@ class LexStack(Stack):
             priority=3, slot_name="PickupTime"
         )
 
+        # FlowerType
+
         # Flower slot group list
         flower_slot_group = lex.CfnBot.MessageGroupProperty(
             message=lex.CfnBot.MessageProperty(
@@ -115,9 +117,40 @@ class LexStack(Stack):
         flower_type_slot = lex.CfnBot.SlotProperty(
             name="FlowerType",
             description="slot for the flower type",
-            slot_type_name="FlowerType",
+            slot_type_name="FlowerType",  # Todo: change this to FlowerTypes
             value_elicitation_setting=flower_value_elicit,
         )
+
+        # PickupDate
+
+        # PickupDate group list
+        pickup_date_group = lex.CfnBot.MessageGroupProperty(
+            message=lex.CfnBot.MessageProperty(
+                plain_text_message="What day do you want the {FlowerType} to be picked up?"
+            )
+        )
+
+        # PickupDate Prompt specification
+        pickup_date_prompt = lex.CfnBot.PromptSpecificationProperty(
+            message_groups_list=[pickup_date_group],
+            max_retries=3,
+            allow_interrupt=False,
+        )
+
+        # value elicitation setting for PickupDate
+        pickup_date_elicit = lex.CfnBot.SlotValueElicitationSettingProperty(
+            slot_constraint="Required", prompt_specification=pickup_date_prompt
+        )
+
+        # PickupDate Property
+        pickup_date_slot = lex.CfnBot.SlotProperty(
+            name="PickupDate",
+            description="slot for the flower type",
+            slot_type_name="AMAZON.Date",
+            value_elicitation_setting=pickup_date_elicit,
+        )
+
+        # PickupTime
 
         # lex intent
         order_flower_intent = lex.CfnBot.IntentProperty(
@@ -130,7 +163,7 @@ class LexStack(Stack):
                 flower_type_priority,
                 pickup_time_priority,
             ],
-            slots=[flower_type_slot],
+            slots=[flower_type_slot, pickup_date_slot],
         )
 
         # localeProperty
