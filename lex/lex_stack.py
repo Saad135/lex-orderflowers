@@ -117,7 +117,7 @@ class LexStack(Stack):
         flower_type_slot = lex.CfnBot.SlotProperty(
             name="FlowerType",
             description="slot for the flower type",
-            slot_type_name="FlowerType",  # Todo: change this to FlowerTypes
+            slot_type_name="FlowerTypes",
             value_elicitation_setting=flower_value_elicit,
         )
 
