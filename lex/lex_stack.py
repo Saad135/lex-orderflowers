@@ -57,11 +57,31 @@ class LexStack(Stack):
             utterance="I would like to order some flowers"
         )
 
+        # Message group
+        flower_message_group = lex.CfnBot.MessageGroupProperty(
+            message=lex.CfnBot.MessageProperty(
+                plain_text_message="Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?"
+            )
+        )
+
+        # Prompt specification
+        flowers_propmt_specs = lex.CfnBot.PromptSpecificationProperty(
+            message_groups_list=[flower_message_group],
+            max_retries=3,
+            allow_interrupt=False,
+        )
+
+        # lex intent confirmation
+        confirm_flowers = lex.CfnBot.IntentConfirmationSettingProperty(
+            prompt_specification=flowers_propmt_specs
+        )
+
         # lex intent
         order_flower_intent = lex.CfnBot.IntentProperty(
             name="OrderFlowers",
             description="Intent to order a bouquet of flowers for pickup",
             sample_utterances=[utterance_flowers_a, utterance_flowers_b],
+            intent_confirmation_setting=lex.CfnBot.IntentConfirmationSettingProperty(),
         )
 
         # Lex bot
