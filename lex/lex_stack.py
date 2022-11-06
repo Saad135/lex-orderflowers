@@ -27,7 +27,9 @@ class LexStack(Stack):
 
         # Bare minimum localeProperty
         en_us_locale = lex.CfnBot.BotLocaleProperty(
-            locale_id="en_US", nlu_confidence_threshold=0.4
+            locale_id="en_US",
+            nlu_confidence_threshold=0.4,
+            description="English Locale",
         )
 
         # Lex bot draft 1
