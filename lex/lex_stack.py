@@ -218,7 +218,7 @@ class LexStack(Stack):
             name="FirstLexBot",
             role_arn=lex_role.role_arn,
             auto_build_bot_locales=False,
-            bot_locales=[],
+            bot_locales=[en_us_locale],
         )
 
         lex_bot.apply_removal_policy(RemovalPolicy.DESTROY)
