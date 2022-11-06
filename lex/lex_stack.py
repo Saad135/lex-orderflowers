@@ -40,15 +40,6 @@ class LexStack(Stack):
             ),
         )
 
-        # localeProperty
-        en_us_locale = lex.CfnBot.BotLocaleProperty(
-            locale_id="en_US",
-            nlu_confidence_threshold=0.4,
-            description="English Locale",
-            voice_settings=lex.CfnBot.VoiceSettingsProperty(voice_id="Ivy"),
-            slot_types=[flower_type],
-        )
-
         # Sample Utterances
         utterance_flowers_a = lex.CfnBot.SampleUtteranceProperty(
             utterance="I would like to pick up flowers"
@@ -94,6 +85,16 @@ class LexStack(Stack):
             description="Intent to order a bouquet of flowers for pickup",
             sample_utterances=[utterance_flowers_a, utterance_flowers_b],
             intent_confirmation_setting=confirm_flowers,
+        )
+
+        # localeProperty
+        en_us_locale = lex.CfnBot.BotLocaleProperty(
+            locale_id="en_US",
+            nlu_confidence_threshold=0.4,
+            description="English Locale",
+            voice_settings=lex.CfnBot.VoiceSettingsProperty(voice_id="Ivy"),
+            slot_types=[flower_type],
+            intents=[order_flower_intent],
         )
 
         # Lex bot
