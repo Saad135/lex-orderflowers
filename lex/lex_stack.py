@@ -67,10 +67,15 @@ class LexStack(Stack):
             allow_interrupt=False,
         )
 
+        # flower decline text message
+        flower_decline_message = lex.CfnBot.PlainTextMessageProperty(
+            value="Okay, I will not place your order."
+        )
+
         # Declination message group
         flower_decline_group = lex.CfnBot.MessageGroupProperty(
             message=lex.CfnBot.MessageProperty(
-                plain_text_message="Okay, I will not place your order."
+                plain_text_message=flower_decline_message
             )
         )
 
