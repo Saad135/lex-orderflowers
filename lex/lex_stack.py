@@ -116,7 +116,7 @@ class LexStack(Stack):
             name="FlowerType",
             description="slot for the flower type",
             slot_type_name="FlowerType",
-            value_elicitation_setting=flower_type_slot,
+            value_elicitation_setting=flower_value_elicit,
         )
 
         # lex intent
