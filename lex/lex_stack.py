@@ -46,7 +46,7 @@ class LexStack(Stack):
             nlu_confidence_threshold=0.4,
             description="English Locale",
             voice_settings=lex.CfnBot.VoiceSettingsProperty(voice_id="Ivy"),
-            slot_types=[],
+            slot_types=[flower_type],
         )
 
         # Lex bot
