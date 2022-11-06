@@ -49,6 +49,21 @@ class LexStack(Stack):
             slot_types=[flower_type],
         )
 
+        # Sample Utterances
+        utterance_flowers_a = lex.CfnBot.SampleUtteranceProperty(
+            utterance="I would like to pick up flowers"
+        )
+        utterance_flowers_b = lex.CfnBot.SampleUtteranceProperty(
+            utterance="I would like to order some flowers"
+        )
+
+        # lex intent
+        order_flower_intent = lex.CfnBot.IntentProperty(
+            name="OrderFlowers",
+            description="Intent to order a bouquet of flowers for pickup",
+            sample_utterances=[utterance_flowers_a, utterance_flowers_b],
+        )
+
         # Lex bot
         lex_bot = lex.CfnBot(
             self,
