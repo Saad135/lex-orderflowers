@@ -58,7 +58,7 @@ class LexStack(Stack):
         )
 
         # Message group
-        flower_message_group = lex.CfnBot.MessageGroupProperty(
+        flower_confirm_group = lex.CfnBot.MessageGroupProperty(
             message=lex.CfnBot.MessageProperty(
                 plain_text_message="Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?"
             )
@@ -66,9 +66,14 @@ class LexStack(Stack):
 
         # Prompt specification
         flowers_propmt_specs = lex.CfnBot.PromptSpecificationProperty(
-            message_groups_list=[flower_message_group],
+            message_groups_list=[flower_confirm_group],
             max_retries=3,
             allow_interrupt=False,
+        )
+
+        # Declination response
+        decline_flowers = lex.CfnBot.ResponseSpecificationProperty(
+            message_groups_list=[]
         )
 
         # lex intent confirmation
