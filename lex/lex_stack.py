@@ -92,11 +92,31 @@ class LexStack(Stack):
             priority=3, slot_name="PickupTime"
         )
 
+        # Flower slot group list
+        flower_slot_group = lex.CfnBot.MessageGroupProperty(
+            message=lex.CfnBot.MessageProperty(
+                plain_text_message="What type of flowers would you like to order?"
+            )
+        )
+
+        # Flower slot Prompt specification
+        flowers_slot_promt = lex.CfnBot.PromptSpecificationProperty(
+            message_groups_list=[flower_slot_group],
+            max_retries=3,
+            allow_interrupt=False,
+        )
+
+        # value elicitation setting for flower type slot
+        flower_value_elicit = lex.CfnBot.SlotValueElicitationSettingProperty(
+            slot_constraint="Required", prompt_specification=flowers_slot_promt
+        )
+
+        # Flower Type Slot Property
         flower_type_slot = lex.CfnBot.SlotProperty(
             name="FlowerType",
             description="slot for the flower type",
             slot_type_name="FlowerType",
-            # value_elicitation_setting=
+            value_elicitation_setting=flower_type_slot,
         )
 
         # lex intent
@@ -110,7 +130,7 @@ class LexStack(Stack):
                 flower_type_priority,
                 pickup_time_priority,
             ],
-            slots=[],
+            slots=[flower_type_slot],
         )
 
         # localeProperty
