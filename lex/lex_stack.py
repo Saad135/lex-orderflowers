@@ -80,7 +80,7 @@ class LexStack(Stack):
 
         # Declination response
         decline_flowers = lex.CfnBot.ResponseSpecificationProperty(
-            message_groups_list=[]
+            message_groups_list=[flower_decline_group], allow_interrupt=False
         )
 
         # lex intent confirmation
