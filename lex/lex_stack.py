@@ -276,4 +276,5 @@ class LexStack(Stack):
             id="MyLexBotVersion",
             bot_id=lex_bot.attr_id,
             bot_version_locale_specification=[lex_bot_locale_specs],
+            description="OrderFlowers Version",
         )
