@@ -15,17 +15,6 @@ class LexStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # # inline policies
-        # lex_policies = iam.PolicyDocument(
-        #     statements=[
-        #         iam.PolicyStatement(
-        #             actions=["polly:SynthesizeSpeech", "comprehend:DetectSentiment"],
-        #             effect=iam.Effect.ALLOW,
-        #             resources=["*"],
-        #         )
-        #     ]
-        # )
-
         # policy statement
         lex_policy_statement = iam.PolicyStatement(
             actions=["polly:SynthesizeSpeech", "comprehend:DetectSentiment"],
