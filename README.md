@@ -1,13 +1,11 @@
+# Welcome to the CDK Lex Orderflowers project
 
-# Welcome to your CDK Python project!
-
-You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`lex_stack`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+This project is an implementation of the order flowers [example](https://docs.aws.amazon.com/lexv2/latest/dg/exercise-1.html) for aws lex using aws cdk. The cdk code follows the cloudformation [template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#aws-resource-lex-bot--examples).
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
-This project is set up like a standard Python project.  The initialization process also creates
-a virtualenv within this project, stored under the .venv directory.  To create the virtualenv
+This project is set up like a standard Python project. The initialization process also creates
+a virtualenv within this project, stored under the .venv directory. To create the virtualenv
 it assumes that there is a `python3` executable in your path with access to the `venv` package.
 If for any reason the automatic creation of the virtualenv fails, you can create the virtualenv
 manually once the init process completes.
@@ -56,10 +54,10 @@ command.
 
 ## Useful commands
 
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
+- `cdk ls` list all stacks in the app
+- `cdk synth` emits the synthesized CloudFormation template
+- `cdk deploy` deploy this stack to your default AWS account/region
+- `cdk diff` compare deployed stack with current state
+- `cdk docs` open CDK documentation
 
 Enjoy!
