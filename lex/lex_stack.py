@@ -278,3 +278,13 @@ class LexStack(Stack):
             bot_version_locale_specification=[lex_bot_locale_specs],
             description="OrderFlowers Version",
         )
+
+        # Bot Alias
+        lex_bot_alias = lex.CfnBotAlias(
+            self,
+            "MyLexBotAlias",
+            bot_alias_name="OrderFlowerVersion1Alias",
+            bot_id=lex_bot.attr_id,
+            bot_version=lex_bot_version.attr_bot_version,
+            sentiment_analysis_settings={"DetectSentiment": True},
+        )
