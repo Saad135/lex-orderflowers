@@ -260,10 +260,14 @@ class LexStack(Stack):
 
         lex_bot.apply_removal_policy(RemovalPolicy.DESTROY)
 
+        # Bot version locale details
+        lex_bot_locale_details = lex.CfnBotVersion.BotVersionLocaleDetailsProperty(
+            source_bot_version="DRAFT"
+        )
+
         # Bot version local specification
         lex_bot_locale_specs = lex.CfnBotVersion.BotVersionLocaleSpecificationProperty(
-            locale_id="en_US",
-            # bot_version_locale_details=
+            locale_id="en_US", bot_version_locale_details=lex_bot_locale_details
         )
 
         # Bot Version
