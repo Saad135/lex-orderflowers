@@ -15,44 +15,33 @@ class LexStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # inline policies
-        lex_policies = iam.PolicyDocument(
-            statements=[
-                iam.PolicyStatement(
-                    actions=["polly:SynthesizeSpeech", "comprehend:DetectSentiment"],
-                    effect=iam.Effect.ALLOW,
-                    resources=["*"],
-                )
-            ]
-        )
+        # # inline policies
+        # lex_policies = iam.PolicyDocument(
+        #     statements=[
+        #         iam.PolicyStatement(
+        #             actions=["polly:SynthesizeSpeech", "comprehend:DetectSentiment"],
+        #             effect=iam.Effect.ALLOW,
+        #             resources=["*"],
+        #         )
+        #     ]
+        # )
 
-        # Trust Policy document
-        lex_trust_policy = iam.PolicyDocument(
-            statements=[
-                iam.PolicyStatement(
-                    effect=iam.Effect.ALLOW,
-                    principals=[iam.ServicePrincipal("lexv2.amazonaws.com")],
-                    actions=["sts:AssumeRole"],
-                )
-            ]
-        )
-
-        # cfn role
-        lex_role = iam.CfnRole(
-            self,
-            "LexRole",
-            assume_role_policy_document=lex_trust_policy,
-            policies=[lex_policies],
+        # policy statement
+        lex_policy_statement = iam.PolicyStatement(
+            actions=["polly:SynthesizeSpeech", "comprehend:DetectSentiment"],
+            effect=iam.Effect.ALLOW,
+            resources=["*"],
         )
 
         # role
-        # lex_role = iam.Role(
-        #     self,
-        #     "LexRole",
-        #     assumed_by=iam.ServicePrincipal("lexv2.amazonaws.com"),
-        #     description="Role for the lex bot",
-        #     # inline_policies=
-        # )
+        lex_role = iam.Role(
+            self,
+            "LexRole",
+            assumed_by=iam.ServicePrincipal("lexv2.amazonaws.com"),
+            description="Role for the lex bot",
+        )
+
+        lex_role.add_to_policy(statement=lex_policy_statement)
 
         lex_role.apply_removal_policy(RemovalPolicy.DESTROY)
 
