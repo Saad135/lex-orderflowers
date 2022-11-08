@@ -259,3 +259,11 @@ class LexStack(Stack):
         )
 
         lex_bot.apply_removal_policy(RemovalPolicy.DESTROY)
+
+        # Bot Version
+        lex_bot_version = lex.CfnBotVersion(
+            self,
+            id="MyLexBotVersion",
+            bot_id=lex_bot.attr_id,
+            # bot_version_locale_specification=[]
+        )
