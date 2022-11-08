@@ -57,9 +57,26 @@ digraph "Diagram" {
         label = " LEX BOT MyLexBot",
         fontsize = 12,
       ];
+      "lex/MyLexBotVersion" [
+        label = " LEX BOTVERSION\nMyLexBotVersion",
+        fontsize = 12,
+      ];
+      "lex/MyLexBotAlias" [
+        label = " LEX BOTALIAS\nMyLexBotAlias",
+        fontsize = 12,
+      ];
     }
   }
   "lex/MyLexBot" -> "lex/LexRole" [
+    dir = "both",
+  ];
+  "lex/MyLexBotVersion" -> "lex/MyLexBot" [
+    dir = "both",
+  ];
+  "lex/MyLexBotAlias" -> "lex/MyLexBot" [
+    dir = "both",
+  ];
+  "lex/MyLexBotAlias" -> "lex/MyLexBotVersion" [
     dir = "both",
   ];
 }
