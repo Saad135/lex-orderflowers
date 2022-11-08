@@ -275,5 +275,5 @@ class LexStack(Stack):
             self,
             id="MyLexBotVersion",
             bot_id=lex_bot.attr_id,
-            # bot_version_locale_specification=[]
+            bot_version_locale_specification=[lex_bot_locale_specs],
         )
